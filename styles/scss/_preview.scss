@@ -26,7 +26,7 @@
 }
 
 .preview__lead {
-    padding-bottom: 1.25rem;
+    padding-bottom: 2rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
     color: $text-color;
@@ -35,14 +35,19 @@
 .preview__attribution {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     padding: 0 2rem 1.25rem;
 }
 
 .preview__attribution__img {
+    display: none;
     height: 2.5rem;
     width: 2.5rem;
     border-radius: 50%;
+
+    @include breakpoint-up(small) {
+        display: block;
+    }
 }
 
 .preview__attribution__text {
@@ -72,8 +77,12 @@
     border-radius: 50%;
     outline: none;
     cursor: pointer;
-    transition: all 300ms ease-in-out;
+    transition: background-color 200ms ease-in-out;
     z-index: 3;
+
+    & svg path {
+        transition: fill 200ms ease-in-out;
+    }
 
     &:hover, &:focus {
         background-color: $button-background-hover;
@@ -81,5 +90,50 @@
         & svg path {
             fill: $button-icon-hover;
         }
+    }
+}
+
+.preview__modal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 1.375rem 2rem;
+    border-radius: 0 0 0.625rem 0.625rem;
+    background-color: $modal-background;
+    z-index: 2;
+}
+
+.preview__modal__text {
+    display: none;
+
+    @include breakpoint-up(small) {
+        display: block;
+        padding-right: 1.5rem;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        color: $modal-text;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+    }
+}
+
+.preview__modal__social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    
+    & svg path {
+        transition: fill 200ms ease-in-out;
+    }
+
+    &:hover svg path, &:focus svg path {
+        fill: $modal-icon-hover;
     }
 }

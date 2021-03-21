@@ -25,7 +25,7 @@ main {
 
 section {
   width: 100%;
-  padding: 4.5rem 1.5rem;
+  padding: 4.5rem 1rem;
 }
 
 .preview {
@@ -56,7 +56,7 @@ section {
 }
 
 .preview__lead {
-  padding-bottom: 1.25rem;
+  padding-bottom: 2rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: #6E8098;
@@ -69,16 +69,23 @@ section {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   padding: 0 2rem 1.25rem;
 }
 
 .preview__attribution__img {
+  display: none;
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 50%;
+}
+
+@media screen and (min-width: 23rem) {
+  .preview__attribution__img {
+    display: block;
+  }
 }
 
 .preview__attribution__text {
@@ -117,9 +124,14 @@ section {
   border-radius: 50%;
   outline: none;
   cursor: pointer;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
   z-index: 3;
+}
+
+.preview__attribution__share svg path {
+  -webkit-transition: fill 200ms ease-in-out;
+  transition: fill 200ms ease-in-out;
 }
 
 .preview__attribution__share:hover, .preview__attribution__share:focus {
@@ -128,5 +140,63 @@ section {
 
 .preview__attribution__share:hover svg path, .preview__attribution__share:focus svg path {
   fill: #FFFFFF;
+}
+
+.preview__modal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.375rem 2rem;
+  border-radius: 0 0 0.625rem 0.625rem;
+  background-color: #48556A;
+  z-index: 2;
+}
+
+.preview__modal__text {
+  display: none;
+}
+
+@media screen and (min-width: 23rem) {
+  .preview__modal__text {
+    display: block;
+    padding-right: 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #9DAEC2;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+  }
+}
+
+.preview__modal__social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 1rem;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.preview__modal__social svg path {
+  -webkit-transition: fill 200ms ease-in-out;
+  transition: fill 200ms ease-in-out;
+}
+
+.preview__modal__social:hover svg path, .preview__modal__social:focus svg path {
+  fill: #6E8098;
 }
 /*# sourceMappingURL=styles.css.map */
