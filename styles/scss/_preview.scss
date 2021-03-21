@@ -84,7 +84,7 @@
         transition: fill 200ms ease-in-out;
     }
 
-    &:hover, &:focus {
+    &:hover, &:focus, &.active {
         background-color: $button-background-hover;
 
         & svg path {

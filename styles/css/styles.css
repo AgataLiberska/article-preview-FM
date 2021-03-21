@@ -28,6 +28,10 @@ section {
   padding: 4.5rem 1rem;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .preview {
   position: relative;
   background-color: #FFFFFF;
@@ -134,11 +138,11 @@ section {
   transition: fill 200ms ease-in-out;
 }
 
-.preview__attribution__share:hover, .preview__attribution__share:focus {
+.preview__attribution__share:hover, .preview__attribution__share:focus, .preview__attribution__share.active {
   background-color: #6E8098;
 }
 
-.preview__attribution__share:hover svg path, .preview__attribution__share:focus svg path {
+.preview__attribution__share:hover svg path, .preview__attribution__share:focus svg path, .preview__attribution__share.active svg path {
   fill: #FFFFFF;
 }
 
