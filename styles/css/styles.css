@@ -27,4 +27,106 @@ section {
   width: 100%;
   padding: 4.5rem 1.5rem;
 }
+
+.preview {
+  position: relative;
+  background-color: #FFFFFF;
+  border-radius: 0.625rem;
+}
+
+.preview__illustration {
+  width: 100%;
+  height: 12.5rem;
+  border-radius: 0.625rem 0.625rem 0 0;
+  background-image: url("/images/drawers.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.preview__text {
+  padding: 0 2rem;
+}
+
+.preview__heading {
+  padding: 2.25rem 0 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #48556A;
+}
+
+.preview__lead {
+  padding-bottom: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #6E8098;
+}
+
+.preview__attribution {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 2rem 1.25rem;
+}
+
+.preview__attribution__img {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+}
+
+.preview__attribution__text {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 1rem;
+}
+
+.preview__attribution__author {
+  font-size: 0.875rem;
+  color: #48556A;
+}
+
+.preview__attribution__date {
+  font-size: 0.875rem;
+  color: #9DAEC2;
+}
+
+.preview__attribution__share {
+  position: relative;
+  height: 2rem;
+  width: 2rem;
+  background: #ECF2F8;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  z-index: 3;
+}
+
+.preview__attribution__share:hover, .preview__attribution__share:focus {
+  background-color: #6E8098;
+}
+
+.preview__attribution__share:hover svg path, .preview__attribution__share:focus svg path {
+  fill: #FFFFFF;
+}
 /*# sourceMappingURL=styles.css.map */
