@@ -87,8 +87,23 @@ body.addEventListener('click', (e) => {
     } 
 })
 ```
-
 Inside the modal, I used `<button>` elements with `aria-label`s as containers for social media icons, assuming that they would open a modal to share content to social media platforms. However, if after clicking on one of the icons, the user was redirected to those social media platforms, anchor tags would be more appropriate.
+
+I also had to adjust the design slightly to fit screens smaller than 375px - elements in the attribution part could not all be displayed in one line without distortion. I decided to hide the author's image and 'share' text on the modal by default, and only display them on screens from 375px.
+
+```scss
+.preview__attribution__img {
+    display: none;
+
+    @include breakpoint-up(small) {
+        display: block;
+        height: 2.5rem;
+        width: 2.5rem;
+        margin-right: 1rem;
+        border-radius: 50%;
+    }
+}
+```
 
 ## Author
 
