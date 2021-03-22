@@ -1,0 +1,194 @@
+.preview {
+    position: relative;
+    max-width: 24rem;
+    margin: auto;
+    background-color: $card-background;
+    border-radius: 0.625rem;
+
+    @include breakpoint-up(medium) {
+        max-width: 46rem;
+        display: flex;
+    }
+}
+
+.preview__illustration {
+    width: 100%;
+    height: 12.5rem;
+    border-radius: 0.625rem 0.625rem 0 0;
+    background-image: url('/images/drawers.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include breakpoint-up(medium) {
+        height: unset;
+        border-radius: 0.625rem 0 0 0.625rem;
+    }
+}
+
+.preview__text {
+    padding: 0 2rem;
+
+    @include breakpoint-up(medium) {
+        padding: 0 2.5rem;
+    }
+}
+
+.preview__heading {
+    padding: 2.25rem 0 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: $heading-color;
+
+    @include breakpoint-up(medium) {
+        padding: 2rem 0 0.75rem;
+        font-size: 1.25rem;
+    }
+}
+
+.preview__lead {
+    padding-bottom: 2rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: $text-color;
+
+    @include breakpoint-up(medium) {
+        padding-bottom: 1.25rem;
+    }
+}
+
+.preview__attribution {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 1.25rem;
+}
+
+.preview__attribution__img {
+    display: none;
+
+    @include breakpoint-up(small) {
+        display: block;
+        height: 2.5rem;
+        width: 2.5rem;
+        margin-right: 1rem;
+        border-radius: 50%;
+    }
+}
+
+.preview__attribution__text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.preview__attribution__author {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: $heading-color;
+}
+
+.preview__attribution__date {
+    font-size: 0.875rem;
+    color: $modal-text;
+}
+
+.preview__attribution__share {
+    position: relative;
+    height: 2rem;
+    width: 2rem;
+    background: $button-background;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out;
+    z-index: 2;
+
+    & svg path {
+        transition: fill 200ms ease-in-out;
+    }
+
+    &:hover, &:focus, &.active {
+        background-color: $button-background-hover;
+
+        & svg path {
+            fill: $button-icon-hover;
+        }
+    }
+}
+
+.preview__modal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 1.375rem 2rem;
+    border-radius: 0 0 0.625rem 0.625rem;
+    background-color: $modal-background;
+    z-index: 1;
+
+    @include breakpoint-up(medium) {
+        bottom: 5rem;
+        left: unset;
+        right: 3.5rem; //container padding + half the width of share button
+        transform: translateX(50%);
+        padding: 1.25rem 2.25rem;
+        border-radius: 0.625rem;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -1.4rem;
+            left: 50%;
+            height: 1.5rem;
+            width: 1.5rem;
+            border-top: 0.75rem solid $modal-background;
+            border-right: 0.75rem solid transparent;
+            border-bottom: 0.75rem solid transparent;
+            border-left: 0.75rem solid transparent;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+.preview__modal__text {
+    display: none;
+
+    @include breakpoint-up(small) {
+        display: block;
+        padding-right: 1.5rem;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        color: $modal-text;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+    }
+}
+
+.preview__modal__social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+
+    &:not(:last-of-type) {
+        margin-right: 1rem;
+    }
+    
+    & svg path {
+        transition: fill 200ms ease-in-out;
+    }
+
+    &:hover svg path, &:focus svg path {
+        fill: $modal-icon-hover;
+    }
+
+    
+}

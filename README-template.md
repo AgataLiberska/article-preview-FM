@@ -11,12 +11,7 @@ This is a solution to the [Article preview component challenge on Frontend Mento
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -29,20 +24,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Screenshot of solution](./images/article-preview-screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [See the solution on Frontend Mentor](https://your-solution-url.com)
+- [See Live Site](https://article-preview-fm.vercel.app/)
 
 ## My process
 
@@ -51,61 +38,73 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- SCSS
+- BEM Methodology
+- Vanilla JavaScript
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+This design was relatively simple to recreate. The most challenging part was the positionig of 'Share to social media' modal in both mobile and desktop layout.
 
-To see how you can add code snippets, see below:
+In mobile layout, the modal is displayed on top of the card, but underneath the Share button. I added a higher `z-index` to the button to achieve this.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
+```scss
+/* Share button */
+.preview__attribution__share {
+    position: relative;
+    /* other styles */
+    z-index: 2;
+}
+
+/* Modal */
+.preview__modal {
+    position: absolute;
+    /* other styles */
+    z-index: 1;
 }
 ```
+
+In desktop layout, I wanted to ensure that the modal is centered above the share button, as it is in the design. To achieve this, I offset it fro the right by a value of the container padding and half the width of the share button, then use the `transform` property to center it:
+
+```scss
+.preview__modal {
+  @include breakpoint-up(medium) {
+        bottom: 5rem;
+        left: unset;
+        right: 3.5rem; /*container padding + half the width of share button */
+        transform: translateX(50%);
+  }
+}
+```
+
+The modal is displayed by clicking the share button (it is also keyboard-accessible with custom focus state). I wanted to make sure that it can be closed both by clicking the share button again and by clicking anywhere outside the modal.
+
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+body.addEventListener('click', (e) => {
+    if (shareBtn.classList.contains('active') && e.target !== modal && !e.target.closest('.js-modal')) {
+        hideModal();
+    } 
+})
+```
+Inside the modal, I used `<button>` elements with `aria-label`s as containers for social media icons, assuming that they would open a modal to share content to social media platforms. However, if after clicking on one of the icons, the user was redirected to those social media platforms, anchor tags would be more appropriate.
+
+I also had to adjust the design slightly to fit screens smaller than 375px - elements in the attribution part could not all be displayed in one line without distortion. I decided to hide the author's image and 'share' text on the modal by default, and only display them on screens from 375px.
+
+```scss
+.preview__attribution__img {
+    display: none;
+
+    @include breakpoint-up(small) {
+        display: block;
+        height: 2.5rem;
+        width: 2.5rem;
+        margin-right: 1rem;
+        border-radius: 50%;
+    }
 }
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@AgataLiberska](https://www.frontendmentor.io/profile/AgataLiberska)
