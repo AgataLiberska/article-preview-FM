@@ -104,7 +104,7 @@
     outline: none;
     cursor: pointer;
     transition: background-color 200ms ease-in-out;
-    z-index: 3;
+    z-index: 2;
 
     & svg path {
         transition: fill 200ms ease-in-out;
@@ -129,7 +129,7 @@
     padding: 1.375rem 2rem;
     border-radius: 0 0 0.625rem 0.625rem;
     background-color: $modal-background;
-    z-index: 2;
+    z-index: 1;
 
     @include breakpoint-up(medium) {
         bottom: 5rem;
