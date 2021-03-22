@@ -124,15 +124,15 @@ section {
 
 .preview__attribution__img {
   display: none;
-  height: 2.5rem;
-  width: 2.5rem;
-  margin-right: 1rem;
-  border-radius: 50%;
 }
 
 @media screen and (min-width: 23rem) {
   .preview__attribution__img {
     display: block;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-right: 1rem;
+    border-radius: 50%;
   }
 }
 

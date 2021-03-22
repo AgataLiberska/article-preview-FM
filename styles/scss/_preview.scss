@@ -66,13 +66,13 @@
 
 .preview__attribution__img {
     display: none;
-    height: 2.5rem;
-    width: 2.5rem;
-    margin-right: 1rem;
-    border-radius: 50%;
 
     @include breakpoint-up(small) {
         display: block;
+        height: 2.5rem;
+        width: 2.5rem;
+        margin-right: 1rem;
+        border-radius: 50%;
     }
 }
 
