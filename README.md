@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Links
 
-- [See the solution on Frontend Mentor](https://your-solution-url.com)
+- [See the solution on Frontend Mentor](https://www.frontendmentor.io/solutions/article-preview-using-scss-vanilla-js-mobile-first-hgZHRsGr1)
 - [See Live Site](https://article-preview-fm.vercel.app/)
 
 ## My process
